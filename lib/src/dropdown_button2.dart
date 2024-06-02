@@ -961,6 +961,7 @@ class DropdownButton2<T> extends StatefulWidget {
   DropdownButton2({
     super.key,
     required this.items,
+    this.trailing,
     this.selectedItemBuilder,
     this.value,
     this.hint,
@@ -1014,6 +1015,7 @@ class DropdownButton2<T> extends StatefulWidget {
   DropdownButton2._formField({
     super.key,
     required this.items,
+    this.trailing,
     this.selectedItemBuilder,
     this.value,
     this.hint,
@@ -1071,6 +1073,9 @@ class DropdownButton2<T> extends StatefulWidget {
   /// then the dropdown button will be disabled, i.e. its arrow will be
   /// displayed in grey and it will not respond to input.
   final List<DropdownMenuItem<T>>? items;
+
+  /// The widget to display after the dropdown button.
+  final Widget? trailing;
 
   /// A builder to customize the dropdown buttons corresponding to the
   /// [DropdownMenuItem]s in [items].
@@ -1602,6 +1607,7 @@ class DropdownButton2State<T> extends State<DropdownButton2<T>> with WidgetsBind
                     },
                   ),
                 ),
+                widget.trailing ?? const SizedBox.shrink(),
               ],
             ),
           ),
